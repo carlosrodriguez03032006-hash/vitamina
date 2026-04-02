@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Pedido | Magnesio Vitalcom Gold</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --black-deep: #050505;
+            --black-surface: #121212;
+            --gold-text: #d4af37;
+            --shadow-gold: 0 10px 30px rgba(191, 149, 63, 0.25);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black-deep);
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: var(--black-surface);
+            padding: 40px 30px;
+            border-radius: 25px;
+            border: 2px solid transparent;
+            background-image: linear-gradient(var(--black-surface), var(--black-surface)), var(--gold-primary);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: var(--shadow-gold);
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .header-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .badge-form {
+            border: 1px solid var(--gold-text);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            color: var(--gold-text);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .header-logo h1 {
+            background: var(--gold-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.6rem;
+            font-weight: 900;
+            margin: 15px 0 5px;
+            text-transform: uppercase;
+        }
+
+        .header-logo p {
+            font-size: 0.75rem;
+            color: #888;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.7rem;
+            color: var(--gold-text);
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(255,255,255,0.03);
+            border: 1px solid rgba(191, 149, 63, 0.3);
+            border-radius: 12px;
+            color: white;
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #fcf6ba;
+            outline: none;
+            background-color: rgba(255,255,255,0.07);
+        }
+
+        .btn-enviar {
+            width: 100%;
+            padding: 22px;
+            background: var(--gold-primary);
+            color: #000;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            margin-top: 10px;
+        }
+
+        .btn-enviar:active {
+            transform: scale(0.97);
+        }
+
+        .footer-info {
+            font-size: 0.65rem;
+            text-align: center;
+            color: #666;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-logo">
+        <span class="badge-form">Envío Gratis Hoy</span>
+        <h1>MAGNESIO VITALCOM</h1>
+        <p>Citrato Premium 1000ml</p>
+    </div>
+
+    <form id="magnesioForm">
+        <div class="form-group">
+            <label>Nombre Completo *</label>
+            <input type="text" id="nombre" placeholder="Escribe tu nombre" required>
+        </div>
+
+        <div class="form-group">
+            <label>Ciudad y Dirección *</label>
+            <input type="text" id="direccion" placeholder="Ej: Medellín, Calle 10 #5-20" required>
+        </div>
+
+        <div class="form-group">
+            <label>Número de WhatsApp *</label>
+            <input type="tel" id="telefono" placeholder="Tu número de contacto" required>
+        </div>
+
+        <div class="form-group">
+            <label>Selecciona tu Promo *</label>
+            <select id="promo" required>
+                <option value="1 Unidad Magnesio - $57.900" selected>1 Unidad (1000ml) - $57.900</option>
+                <option value="2 Unidades Magnesio - $105.900">2 Unidades (Doble Poder) - $105.900</option>
+                <option value="3 Unidades Magnesio - $149.900">3 Unidades (Mejor Ahorro) - $149.900</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Método de Pago *</label>
+            <select id="pago" required>
+                <option value="PAGO CONTRA ENTREGA">PAGO CONTRA ENTREGA (Pagas al recibir)</option>
+                <option value="TRANSFERENCIA">Transferencia (Nequi/Bancolombia)</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn-enviar">Confirmar mi Pedido</button>
+        
+        <p style="text-align: center; font-size: 0.7rem; color: #4CAF50; margin-top: 15px; font-weight: 700;">
+            🛡️ Pedido Seguro y Verificado
+        </p>
+    </form>
+
+    <div class="footer-info">
+        <b>Soporte:</b> 302 840 4568 <br>
+        Despachos desde Cali a toda Colombia
+    </div>
+</div>
+
+<script>
+    document.getElementById('magnesioForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const nombre = document.getElementById('nombre').value;
+        const direccion = document.getElementById('direccion').value;
+        const tel = document.getElementById('telefono').value;
+        const promo = document.getElementById('promo').value;
+        const pago = document.getElementById('pago').value;
+
+        const contacto = "573028404568";
+        
+        const mensaje = `*NUEVA ORDEN: MAGNESIO VITALCOM*%0A%0A` +
+                        `👤 *Cliente:* ${nombre}%0A` +
+                        `📍 *Dirección:* ${direccion}%0A` +
+                        `📱 *WhatsApp:* ${tel}%0A` +
+                        `🧴 *Promo:* ${promo}%0A` +
+                        `💳 *Pago:* ${pago}%0A%0A` +
+                        `_Por favor confirmar despacho inmediato._`;
+
+        window.open(`https://api.whatsapp.com/send?phone=${contacto}&text=${mensaje}`, '_blank');
+    });
+</script>
+
+</body>
+</html>
