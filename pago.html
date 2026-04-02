@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finalizar Pedido | Magnesio Vitalcom Gold</title>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold-primary: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
@@ -19,7 +19,7 @@
             background-color: var(--black-deep);
             color: #ffffff;
             margin: 0;
-            padding: 20px;
+            padding: 10px; /* Reducido para móviles pequeños */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,7 +28,7 @@
 
         .container {
             background: var(--black-surface);
-            padding: 40px 30px;
+            padding: 30px 20px;
             border-radius: 25px;
             border: 2px solid transparent;
             background-image: linear-gradient(var(--black-surface), var(--black-surface)), var(--gold-primary);
@@ -36,19 +36,20 @@
             background-clip: padding-box, border-box;
             box-shadow: var(--shadow-gold);
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
+            box-sizing: border-box;
         }
 
         .header-logo {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .badge-form {
             border: 1px solid var(--gold-text);
             padding: 4px 12px;
             border-radius: 50px;
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             letter-spacing: 2px;
             color: var(--gold-text);
             font-weight: 700;
@@ -59,26 +60,25 @@
             background: var(--gold-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 900;
             margin: 15px 0 5px;
             text-transform: uppercase;
         }
 
         .header-logo p {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: #888;
             margin: 0;
-            letter-spacing: 1px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-size: 0.7rem;
             color: var(--gold-text);
             text-transform: uppercase;
@@ -87,47 +87,44 @@
 
         input, select {
             width: 100%;
-            padding: 15px;
-            background-color: rgba(255,255,255,0.03);
+            padding: 12px;
+            background-color: rgba(255,255,255,0.05);
             border: 1px solid rgba(191, 149, 63, 0.3);
-            border-radius: 12px;
+            border-radius: 10px;
             color: white;
-            font-size: 0.9rem;
+            font-size: 1rem; /* Tamaño ideal para evitar zoom en iPhone */
             font-family: 'Montserrat', sans-serif;
             box-sizing: border-box;
-            transition: 0.3s;
         }
 
-        input:focus, select:focus {
-            border-color: #fcf6ba;
-            outline: none;
-            background-color: rgba(255,255,255,0.07);
+        select option {
+            background: #121212;
+            color: white;
         }
 
         .btn-enviar {
             width: 100%;
-            padding: 22px;
+            padding: 18px;
             background: var(--gold-primary);
             color: #000;
             border: none;
-            border-radius: 15px;
-            font-size: 1.1rem;
+            border-radius: 12px;
+            font-size: 1rem;
             font-weight: 900;
             text-transform: uppercase;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-            margin-top: 10px;
+            margin-top: 15px;
+            transition: 0.3s;
         }
 
-        .btn-enviar:active {
-            transform: scale(0.97);
-        }
+        .btn-enviar:hover { opacity: 0.9; }
 
         .footer-info {
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             text-align: center;
             color: #666;
-            margin-top: 25px;
+            margin-top: 20px;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -175,7 +172,7 @@
 
         <button type="submit" class="btn-enviar">Confirmar mi Pedido</button>
         
-        <p style="text-align: center; font-size: 0.7rem; color: #4CAF50; margin-top: 15px; font-weight: 700;">
+        <p style="text-align: center; font-size: 0.75rem; color: #4CAF50; margin-top: 15px; font-weight: 700;">
             🛡️ Pedido Seguro y Verificado
         </p>
     </form>
@@ -196,23 +193,25 @@
         const promo = document.getElementById('promo').value;
         const pago = document.getElementById('pago').value;
 
+        // El número de WhatsApp debe ir sin el símbolo +
         const contacto = "573028404568";
         
-        // Creamos el mensaje con formato limpio
-        const textoLimpio = `*NUEVA ORDEN: MAGNESIO VITALCOM*
+        // El formato del mensaje con saltos de línea correctos
+        const textoLimpio = `*NUEVA ORDEN: MAGNESIO VITALCOM*\n\n` +
+                          `👤 *Cliente:* ${nombre}\n` +
+                          `📍 *Dirección:* ${direccion}\n` +
+                          `📱 *WhatsApp:* ${tel}\n` +
+                          `🧴 *Promo:* ${promo}\n` +
+                          `💳 *Pago:* ${pago}\n\n` +
+                          `_Por favor confirmar despacho inmediato._`;
 
-👤 *Cliente:* ${nombre}
-📍 *Dirección:* ${direccion}
-📱 *WhatsApp:* ${tel}
-🧴 *Promo:* ${promo}
-💳 *Pago:* ${pago}
-
-_Por favor confirmar despacho inmediato._`;
-
-        // Codificamos el mensaje para que WhatsApp no lo corte
         const mensajeFinal = encodeURIComponent(textoLimpio);
 
-        window.open(`https://whatsapp.com{contacto}&text=${mensajeFinal}`, '_blank');
+        // URL CORREGIDA: Usamos wa.me que es la más compatible
+        const urlWhatsapp = `https://wa.me/${contacto}?text=${mensajeFinal}`;
+
+        // Redirección directa (mejor para móviles que window.open)
+        window.location.href = urlWhatsapp;
     });
 </script>
 
